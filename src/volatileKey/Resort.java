@@ -5,6 +5,7 @@ import com.sun.corba.se.pept.transport.ReaderThread;
 /**
  * @author Yuanping Zhang
  * @date
+ * 禁止指令重排：通过插入内存屏障来禁止屏障前后的指令发生重排优化
  */
 public class Resort {
     private static int number;
