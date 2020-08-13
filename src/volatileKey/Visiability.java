@@ -25,11 +25,11 @@ public class Visiability {
 
         new Thread(() -> {
             System.out.println(Thread.currentThread().getName() + "\t comes in");
-//            try {
-//                Thread.sleep(100);
-//            } catch (InterruptedException e) {
-//                e.printStackTrace();
-//            }
+            try {
+                Thread.sleep(100);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             synchronized (Visiability.class) {
                 System.out.println("change");
                 data.change();

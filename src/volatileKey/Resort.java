@@ -8,7 +8,9 @@ import com.sun.corba.se.pept.transport.ReaderThread;
  * 禁止指令重排：通过插入内存屏障来禁止屏障前后的指令发生重排优化
  */
 public class Resort {
-    private static int number;
+    private static int number = 0;
+
+    private static boolean ready = false;
 
     private static class WriterThread extends Thread {
 
@@ -19,20 +21,17 @@ public class Resort {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            number++;
+            number = 24;
+            ready = true;
             System.out.println(Thread.currentThread().getName() + ": change");
         }
     }
 
     public static void main(String[] args) {
-        int count = 0;
-        while (number == count) {
-            WriterThread thread3 = new WriterThread();
-            thread3.start();
-            count++;
-            while (count != number) {
-                Thread.yield();
-            }
+        WriterThread thread3 = new WriterThread();
+        thread3.start();
+        while (!ready) {
+            Thread.yield();
         }
         System.out.println(Thread.currentThread().getName() + ": " + number);
     }
