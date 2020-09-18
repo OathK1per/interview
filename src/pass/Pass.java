@@ -2,6 +2,10 @@ package pass;
 
 import init.Father;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * @author Yuanping Zhang
  * @date
@@ -14,6 +18,21 @@ public class Pass {
         Integer j = 200;
         int[] arr = {1,2,3,4,5};
         Father father = new Father();
+
+//        List<String> list = new ArrayList<>();
+//        list.add("same");
+//        ArrayList<String> newList = new ArrayList<String>(list.clone());
+//        if (list.get(0).equals(newList.get(0))) {
+//            System.out.println("same");
+//        }
+//        String string = list.get(0);
+//        string.concat(", no!");
+//        list.add(0, string);
+//        System.out.println(newList.get(0));
+//        System.out.println(list.get(0));
+//        if (list.get(0).equals(newList.get(0))) {
+//            System.out.println("same");
+//        }
 
         change(i, str, j, arr, father, str2);
 
@@ -34,3 +53,4 @@ public class Pass {
         s2.concat("67890");
     }
 }
+
